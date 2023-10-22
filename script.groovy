@@ -2,9 +2,9 @@
 def buildImage() {
     echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh "docker build -t sofienechihi/my-repo:spring-app-${IMAGE_VERSION} ."
+        sh "docker build -t ayadinou/my-repo:spring-app-${IMAGE_VERSION} ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh "docker push sofienechihi/my-repo:spring-app-${IMAGE_VERSION}"
+        sh "docker push ayadinou/my-repo:spring-app-${IMAGE_VERSION}"
     }
 }
 
@@ -15,7 +15,7 @@ def pushToNexus() {
 
 def sonarScan(String serverIp, String serverUser) {
     echo "Running sonarQube scan..."
-    def runSonar = '"export MYSQLDB_ROOT_PASSWORD=sofiene MYSQLDB_DATABASE=pet_store MYSQLDB_LOCAL_PORT=3306 MYSQLDB_DOCKER_PORT=3306 && bash runSonarQube.sh"'
+    def runSonar = '"export MYSQLDB_ROOT_PASSWORD=ayadinou MYSQLDB_DATABASE=pet_store MYSQLDB_LOCAL_PORT=3306 MYSQLDB_DOCKER_PORT=3306 && bash runSonarQube.sh"'
     sshagent (credentials: ['sonar-server']) {
         sh "ssh -o StrictHostKeyChecking=no ${serverUser}@${serverIp} ${runSonar}"
     }}
