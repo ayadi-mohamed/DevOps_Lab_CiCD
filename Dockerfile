@@ -13,6 +13,6 @@ RUN mvn install -Dmaven.test.skip=true
 
 FROM adoptopenjdk/openjdk11:alpine-jre as runtime
 
-COPY --from=builder target/*.jar /home/project/app.jar
+COPY  ./target/*.jar /home/project/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/home/project/app.jar"]
