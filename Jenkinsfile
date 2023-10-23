@@ -41,6 +41,8 @@ pipeline {
         stage("SonarQube Testing and Scan") {
             steps {
                 script {
+                    echo 'Testing and scaning  '
+
                     /* gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") */
                 }
             }
@@ -62,6 +64,8 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
+                    echo 'Deploying '
+
                     /* gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")  */
                 }
             }
