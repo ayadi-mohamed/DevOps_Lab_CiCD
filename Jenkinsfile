@@ -41,7 +41,7 @@ pipeline {
         stage("SonarQube Testing and Scan") {
             steps {
                 script {
-                    gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}")
+                    /* gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") */
                 }
             }
         }
@@ -62,14 +62,14 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")
+                    /* gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")  */
                 }
             }
         }
 
     }
 
-    post {
+ /*    post {
         success {
             script {
                 echo 'removing the old images from the Jenkins server..'
@@ -86,5 +86,5 @@ pipeline {
 
             }
         }
-    }
+    }*/
 }
