@@ -7,8 +7,8 @@ pipeline {
     environment {
         DEPLOYMENT_SERVER_IP = "192.168.122.101"
         DEPLOYMENT_SERVER_USER= "sofiene"
-        SONARQUBE_SERVER_IP ="192.168.122.144"
-        SONARQUBE_SERVER_USER="sofiene"
+        SONARQUBE_SERVER_IP ="172.21.0.3"
+        SONARQUBE_SERVER_USER="admin"
         JENKINS_SERVER_IP ="192.168.122.241"
         JENKINS_SERVER_USER="sofiene"
         IMAGE_VERSION="1.0.0"
