@@ -10,8 +10,9 @@ def buildImage() {
 
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
-    sh 'mvn clean deploy -Dmaven.test.skip=true'
-}
+/*    sh 'mvn clean deploy -Dmaven.test.skip=true'
+*/
+      }
 
 def sonarScan(String serverIp, String serverUser) {
     echo "Running sonarQube scan..."
