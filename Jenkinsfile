@@ -50,7 +50,8 @@ pipeline {
         stage("Push JAR to Nexus"){
             steps {
                 script {
-                    gv.pushToNexus()
+                     echo 'Pushing to nexus'
+                  /*   gv.pushToNexus()  */
                 }
             }
         }
