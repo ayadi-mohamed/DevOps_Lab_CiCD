@@ -12,7 +12,7 @@ def buildImage() {
 
 def buildJar() {
     echo "building the JAR."
-    sh "mvn install"
+    sh "mvn clean package"
    
 }
 
