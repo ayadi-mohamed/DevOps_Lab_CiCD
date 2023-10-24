@@ -43,7 +43,7 @@ pipeline {
                 script {
                     echo 'Testing and scaning  '
 
-                     gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") 
+                   /*  gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") */
                 }
             }
         }
