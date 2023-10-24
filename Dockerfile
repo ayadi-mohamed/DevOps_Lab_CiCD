@@ -7,6 +7,6 @@ RUN mkdir -p /home/project
 
 
 WORKDIR /home/project
-COPY /var/jenkins_home/workspace/TPDevOpsPipeline/target/devops-project-0.0.1-SNAPSHOT.jar /home/project/app.jar
+COPY /var/jenkins_home/workspace/TPDevOpsPipeline/target/devops-project-0.0.1-SNAPSHOT.jar /app.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/home/project/app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]
