@@ -2,6 +2,7 @@
 def buildImage() {
     echo "building the docker image..."
     sh "ls"
+    sh "pwd"
     sh "ls target/"
     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh "docker build -t ayadinou/tp_devops_spring_boot_app:${IMAGE_VERSION} ."
