@@ -47,6 +47,14 @@ pipeline {
                 }
             }
         }
+        stage("build JAR"){
+
+            steps {
+                script {
+                    gv.buildJar()
+                }
+            }
+        }
         stage("Push JAR to Nexus"){
             steps {
                 script {
