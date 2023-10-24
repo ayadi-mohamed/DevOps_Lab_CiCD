@@ -5,12 +5,12 @@ def gv
 pipeline {
     agent any
     environment {
-        DEPLOYMENT_SERVER_IP = "192.168.1.9"
-        DEPLOYMENT_SERVER_USER= "sofiene"
-        SONARQUBE_SERVER_IP ="172.24.0.3"
+        DEPLOYMENT_SERVER_IP = "deployment"
+        DEPLOYMENT_SERVER_USER= "ayadinou"
+        SONARQUBE_SERVER_IP ="sonarqube"
         SONARQUBE_SERVER_USER="admin"
-        JENKINS_SERVER_IP ="192.168.122.241"
-        JENKINS_SERVER_USER="sofiene"
+        JENKINS_SERVER_IP ="jenkins_container"
+        JENKINS_SERVER_USER="ayadinou"
         IMAGE_VERSION="1.0.0"
     }
     tools {
@@ -43,7 +43,7 @@ pipeline {
                 script {
                     echo 'Testing and scaning  '
 
-                    /* gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") */
+                     gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") 
                 }
             }
         }
