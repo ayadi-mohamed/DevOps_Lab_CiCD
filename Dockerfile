@@ -7,6 +7,6 @@ RUN mkdir -p /home/project
 
 
 WORKDIR /home/project
-COPY ./target/devops-project-0.0.1-SNAPSHOT.jar /home/project/app.jar
+COPY target/devops-project-0.0.1-SNAPSHOT.jar /home/project/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/home/project/app.jar"]
