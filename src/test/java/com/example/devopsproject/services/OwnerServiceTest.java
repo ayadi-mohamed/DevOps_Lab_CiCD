@@ -66,8 +66,8 @@ public class OwnerServiceTest {
     void testGetAllOwners() {
 
         // Set up our mock repository
-        Owner owner1 = new Owner(1l, "ayadinou", 26);
-        Owner owner2 = new Owner(2l, "mehdi", 25);
+        Owner owner1 = new Owner(1l, "ayadinou", 15);
+        Owner owner2 = new Owner(2l, "mehdi", 19);
         doReturn(Arrays.asList(owner1, owner2)).when(repository).findAll();
 
         // Execute the service call
