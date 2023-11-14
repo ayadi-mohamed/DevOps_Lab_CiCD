@@ -4,15 +4,7 @@ def gv
 
 pipeline {
     agent any
-    environment {
-        DEPLOYMENT_SERVER_IP = "deployment"
-        DEPLOYMENT_SERVER_USER= "ayadinou"
-        SONARQUBE_SERVER_IP ="sonarqube"
-        SONARQUBE_SERVER_USER="admin"
-        JENKINS_SERVER_IP ="jenkins_container"
-        JENKINS_SERVER_USER="ayadinou"
-        IMAGE_VERSION="1.0.0"
-    }
+   
     tools {
         maven 'maven'
     }
@@ -38,7 +30,7 @@ pipeline {
                 }
             }
         }
-        stage("SonarQube Testing and Scan") {
+        /*stage("SonarQube Testing and Scan") {
             steps {
                 script {
                     echo 'Testing and scaning  '
@@ -46,7 +38,7 @@ pipeline {
                   //  gv.sonarScan("${SONARQUBE_SERVER_IP}","${SONARQUBE_SERVER_USER}") 
                 }
             }
-        }
+        }*/
         stage("build JAR"){
 
             steps {
@@ -55,14 +47,15 @@ pipeline {
                 }
             }
         }
+        /*
         stage("Push JAR to Nexus"){
             steps {
                 script {
                      echo 'Pushing to nexus'
-                  /*   gv.pushToNexus()  */
+                     gv.pushToNexus()  
                 }
             }
-        }
+        }*/
         stage("build image") {
             steps {
                 script {
@@ -70,17 +63,19 @@ pipeline {
                 }
             }
         }
+        /*
         stage("deploy") {
             steps {
                 script {
                     echo 'Deploying '
 
-                    /* gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")  */
+                     gv.deployApp("${DEPLOYMENT_SERVER_IP}","${DEPLOYMENT_SERVER_USER}")  
                 }
             }
         }
 
     }
+*/
 
  /*    post {
         success {
