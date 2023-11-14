@@ -15,7 +15,7 @@ def buildJar() {
     sh "mvn clean package -Dmaven.test.skip=true"
    
 }
-
+/*
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
     sh 'mvn clean deploy -Dmaven.test.skip=true'
@@ -43,5 +43,5 @@ def cleanUntaggedImages(String serverIp, String serverUser){
         sh "ssh -o StrictHostKeyChecking=no ${serverUser}@${serverIp} ${cleanImages}"
     }
 }
-
+*/
 return this
