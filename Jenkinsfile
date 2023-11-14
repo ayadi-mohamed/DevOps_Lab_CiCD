@@ -16,6 +16,7 @@ pipeline {
                 }
             }
         }
+        
         stage('increment version') {
             steps {
                 script {
@@ -93,6 +94,6 @@ pipeline {
                 //emailext body: 'Your backend pipeline failed the built and deployment of the project successfully', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Failure of digihunt pipeline stages'
 
             }
-        }
-    }*/
+        }*/
+    }
 }
