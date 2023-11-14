@@ -4,9 +4,9 @@ def buildImage() {
     sh "ls"
     sh "ls target/"
     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh "docker build -t ayadinou/tp_devops_spring_boot_app:${IMAGE_VERSION} ."
+        sh "docker build -t ayadinou/tp_devops_spring_boot_app:${IMAGE_VERSION} -t ayadinou/tp_devops_spring_boot_app:latest ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh "docker push ayadinou/tp_devops_spring_boot_app:${IMAGE_VERSION}"
+        sh "docker push ayadinou/tp_devops_spring_boot_app --all-tags"
     }
 }
 
