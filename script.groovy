@@ -12,7 +12,7 @@ def buildImage() {
 
 def buildJar() {
     echo "building the JAR."
-    sh "mvn clean package -Dmaven.test.skip=true"
+    sh "mvn clean package"
    
 }
 /*
