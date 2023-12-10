@@ -13,8 +13,18 @@ def buildImage() {
 def buildJar() {
     echo "building the JAR."
     sh "mvn clean package -Dmaven.test.skip=true"
+
    
 }
+
+def sonarScan() {
+    echo "Running SonarQube Scanner..."
+    withSonarQubeEnv() {
+        sh "mvn verify sonar:sonar -Dsonar.projectKey=pet_store_pipeline_dev -Dsonar.projectName=pet_store_pipeline_develop -Dsonar.token=sqp_e549ee970466f2fbe0ad88420ac5148ed6389465"
+    }
+}
+
+
 /*
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
@@ -22,12 +32,7 @@ def pushToNexus() {
 
       }
 
-def sonarScan(String serverIp, String serverUser) {
-    echo "Running sonarQube scan..."
-    def runSonar = '"export MYSQLDB_ROOT_PASSWORD=ayadinou MYSQLDB_DATABASE=pet_store MYSQLDB_LOCAL_PORT=3306 MYSQLDB_DOCKER_PORT=3306 && bash runSonarQube.sh"'
-    sshagent (credentials: ['sonar-server']) {
-        sh "ssh -o StrictHostKeyChecking=no ${serverUser}@${serverIp} ${runSonar}"
-    }}
+
 
 def deployApp(String serverIp, String serverUser) {
     echo 'deploying the application...'
