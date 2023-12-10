@@ -19,8 +19,8 @@ def buildJar() {
 
 def sonarScan() {
     echo "Running SonarQube Scanner..."
-    withSonarQubeEnv() {
-        sh "mvn verify sonar:sonar -Dsonar.projectKey=pet_store_pipeline_ci_dev -Dsonar.projectName=pet_store_pipeline_ci_develop -Dsonar.token=sqb_6705cf867a6544a73f26c6f63c97b71c1f773f03"
+    withSonarQubeEnv("sonarqube-project-token") {
+        sh "mvn verify sonar:sonar -Dsonar.projectKey=pet_store_pipeline_ci_dev -Dsonar.projectName=pet_store_pipeline_ci_develop"
     }
 }
 
