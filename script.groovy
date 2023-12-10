@@ -19,7 +19,7 @@ def buildJar() {
 
 def sonarScan() {
     echo "Running SonarQube Scanner..."
-    withSonarQubeEnv("SonarQube") {
+    withSonarQubeEnv("secret-sonar") {
         sh "mvn verify sonar:sonar -Dsonar.projectKey=pet_store_pipeline_ci_dev -Dsonar.projectName=pet_store_pipeline_ci_develop"
     }
 }
