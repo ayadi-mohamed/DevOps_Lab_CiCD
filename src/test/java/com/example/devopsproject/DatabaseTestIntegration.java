@@ -18,7 +18,7 @@ public class DatabaseTestIntegration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://mysqldb:3306/your_database");
-        dataSource.setUsername("ayadinou");
+        dataSource.setUsername("root");
         dataSource.setPassword("ayadinou1601");
         return dataSource;
     }
