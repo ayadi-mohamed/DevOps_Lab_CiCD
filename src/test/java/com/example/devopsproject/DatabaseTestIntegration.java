@@ -5,23 +5,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("test")
-public class DatabaseTestConfiguration {
+@Profile("integration-test")
+public class DatabaseTestIntegration {
 
     @Primary
     @Bean
     public DataSource dataSource() {
-        // Setup a test data source
+        // Setup MySQL data source
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://mysqldb:3306/your_database");
+        dataSource.setUsername("ayadinou");
+        dataSource.setPassword("ayadinou1601");
         return dataSource;
     }
 }
-
