@@ -28,7 +28,15 @@ def trivyScan(){
     sh "trivy image --format template --template '@/usr/local/share/trivy/templates/html.tpl' -o TrivyReport.html ayadinou/tp_devops_spring_boot_app:${IMAGE_VERSION} --scanners vuln"
 }
 
-
+def pushDeploymentGithub(){
+    sh "mkdir git"
+    sh "cd git" 
+    sh "git clone https://github.com/mpoyd/DevOps_lab_deployment_stage"
+    sh "cd base"
+    sh "sed -i 's|- image:|- image: ayadinou/tp_devops_spring_boot_app:2.7.4-76|' deployment.yaml  "
+    
+    
+}
 /*
 def pushToNexus() {
     echo "pushing the jar file to Nexus maven-snapshots repo..."
