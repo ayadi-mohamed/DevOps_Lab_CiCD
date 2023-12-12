@@ -19,7 +19,7 @@ public class DatabaseTestIntegration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://mysqldb:3306/your_database");
         dataSource.setUsername("root");
-        dataSource.setPassword("ayadinou1601");
+        dataSource.setPassword("ayadinou");
         return dataSource;
     }
 }
