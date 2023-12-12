@@ -80,7 +80,13 @@ pipeline {
                 }
             }
         }
-
+        stage("Push to deployment github") {
+            steps {
+                script {
+                    gv.pushDeploymentGithub()
+                }
+            }
+        }
         
         /*
         stage("deploy") {
