@@ -33,7 +33,11 @@ def pushDeploymentGithub(){
     sh "cd git" 
     sh "git clone https://github.com/mpoyd/DevOps_lab_deployment_stage"
     sh "cd base"
-    sh "sed -i 's|- image:|- image: ayadinou/tp_devops_spring_boot_app:2.7.4-76|' deployment.yaml  "
+    sh "sed -i 's|- image:|- image: ayadinou/tp_devops_spring_boot_app:2.7.4-76|' deployment.yaml"
+    sh "cd .."
+    sh "git add ."
+    sh "git commit -m 'Updates from Jenkins pipeline'"
+    sh "git push"
     
     
 }
