@@ -40,15 +40,16 @@ pipeline {
                 }
             }
         }*/
-        stage("SonarQube Analysis") {
+  /*      stage("SonarQube Analysis") {
                     steps {
                         script {
-                            gv.sonarScan()
+                           gv.sonarScan()
+                        
                         }
                     }
                 }
 
-        
+        */
         stage("build JAR"){
 
             steps {
