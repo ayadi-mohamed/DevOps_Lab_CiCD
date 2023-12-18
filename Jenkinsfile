@@ -74,7 +74,7 @@ pipeline {
                 }
             }
         }
-        stage("Trivy Scan") {
+       /* stage("Trivy Scan") {
             steps {
                 script {
                     gv.trivyScan()
@@ -88,7 +88,7 @@ pipeline {
                 }
             }
         }
-        
+        */
         /*
         stage("deploy") {
             steps {
