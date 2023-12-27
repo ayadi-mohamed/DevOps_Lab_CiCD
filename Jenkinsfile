@@ -74,6 +74,26 @@ pipeline {
                 }
             }
         }
+
+        stage("neuvectorscan"){
+
+            steps {
+                // Use NeuVector Vulnerability Scanner Plugin
+                neuvector scanner: [
+                    action: 'scanImage', 
+                    imageName: "your-web-app:${env.IMAGE_VERSION}", 
+                   
+                    report: true, 
+                    failThreshold: 'high'
+                ]
+                // Add additional steps if needed to handle the scan results
+            }
+        }
+
+
+
+
+        
        /* stage("Trivy Scan") {
             steps {
                 script {
