@@ -79,13 +79,15 @@ pipeline {
 
             steps {
                 // Use NeuVector Vulnerability Scanner Plugin
-                neuvector scanLayers: [
-                    action: 'scanImage', 
-                    imageName: "ayadinou/tp_devops_spring_boot_app:${env.IMAGE_VERSION}", 
-                   
-                    report: true, 
-                    failThreshold: 'high'
-                ]
+                neuvector nameOfVulnerabilityToExemptFour: '', nameOfVulnerabilityToExemptOne: '', 
+                    nameOfVulnerabilityToExemptThree: '',
+                    nameOfVulnerabilityToExemptTwo: '', nameOfVulnerabilityToFailFour: '',
+                    nameOfVulnerabilityToFailOne: 'xx', nameOfVulnerabilityToFailThree: 'zz', 
+                    nameOfVulnerabilityToFailTwo: 'yy', numberOfHighSeverityToFail: '3', 
+                    numberOfMediumSeverityToFail: '4', registrySelection: 'ayadinou-docker', 
+                    repository: 'ayadinou/tp_devops_spring_boot_app',
+                    scanLayers: true, scanTimeout: 10, standaloneScanner: true, tag: ${env.IMAGE_VERSION}
+
                 // Add additional steps if needed to handle the scan results
             }
         }
