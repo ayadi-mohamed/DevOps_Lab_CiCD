@@ -79,9 +79,9 @@ pipeline {
 
             steps {
                 // Use NeuVector Vulnerability Scanner Plugin
-                neuvector scanner: [
+                neuvector scanLayers: [
                     action: 'scanImage', 
-                    imageName: "your-web-app:${env.IMAGE_VERSION}", 
+                    imageName: "ayadinou/tp_devops_spring_boot_app:${env.IMAGE_VERSION}", 
                    
                     report: true, 
                     failThreshold: 'high'
