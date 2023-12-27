@@ -86,7 +86,7 @@ pipeline {
                     nameOfVulnerabilityToFailTwo: 'yy', numberOfHighSeverityToFail: '3', 
                     numberOfMediumSeverityToFail: '4', registrySelection: 'ayadinou-docker', 
                     repository: 'ayadinou/tp_devops_spring_boot_app',
-                    scanLayers: true, scanTimeout: 10, standaloneScanner: true, tag: '${env.IMAGE_VERSION}'
+                    scanLayers: true, scanTimeout: 10, standaloneScanner: true, tag: "${IMAGE_VERSION}"
 
                 // Add additional steps if needed to handle the scan results
             }
